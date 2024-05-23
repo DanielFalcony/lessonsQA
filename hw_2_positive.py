@@ -1,5 +1,5 @@
-from hw_2_checkers import (checkout, take_data, make_folders, make_files,
-                           make_subfolder, clear_folders, data)
+from hw_2_checkers import (checkout, take_data)
+from conftest import data
 
 
 def test_step1(make_folders, clear_folders, make_files):
