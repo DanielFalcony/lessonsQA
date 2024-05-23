@@ -65,3 +65,11 @@ def test_step8():
     assert checkout(f"cd {data['folder_out']}; 7z d arx.7z", "Everything is Ok"), "test5 FAIL"
 
 
+def test_step9(clear_folders):
+    # delite all files in folders and check it
+    res = [data['folder_in'], data['folder_out'], data['folder_ext'], data['folder_ext2']]
+    checkout_clean = []
+    for item in res:
+        iter_step = checkout(f"cd {item}; ls -l", "total 0"), f"Here some files, {item} FAIL"
+        checkout_clean.append(iter_step[0])
+    assert all(checkout_clean), "test9 FAIL"
