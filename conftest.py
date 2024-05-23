@@ -1,5 +1,7 @@
 import random
 import string
+from datetime import datetime
+
 import yaml
 import pytest
 from hw_2_checkers import checkout
@@ -41,3 +43,9 @@ def make_subfolder():
         return sub_folder_name, None
     else:
         return sub_folder_name, test_file_name
+
+
+@pytest.fixture(autouse=True)
+def show_time():
+    print(f"Start time: {datetime.now().strftime('%m/%d/%Y %H:%M:%S.%f')}")
+    yield print(f"Stop time: {datetime.now().strftime('%m/%d/%Y %H:%M:%S.%f')}")
